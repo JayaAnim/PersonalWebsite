@@ -50,6 +50,11 @@ header .nav-btn {
     font-size: 1.8rem;
 }
 
+#selected {
+    border-bottom: .3rem solid;
+    border-color: red;
+}
+
 @media only screen and (max-width: 1024px) {
     header .nav-btn {
         visibility: visible;
