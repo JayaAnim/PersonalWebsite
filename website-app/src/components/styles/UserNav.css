@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;1,500&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Kanit', sans-serif;
 }
 
 :root {
-    --mainColor: #29335c;
-    --mainColorLight: #5767aa;
-    --secondaryColor: #db2b39;
+    --mainColor: #333333;
+    --mainColorLight: grey;
+    --secondaryColor: lightBlue;
     --textColor: #eee;
 }
 
@@ -16,10 +18,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 65px;
     padding: 0 2rem;
-    background-color: var(--mainColor);
     color: var(--textColor);
+    background-color: var(--mainColor);
 }
 
 nav {
@@ -50,9 +52,9 @@ header .nav-btn {
     font-size: 1.8rem;
 }
 
-#selected {
+.selected {
     border-bottom: .3rem solid;
-    border-color: red;
+    border-color: var(--textColor);
 }
 
 @media only screen and (max-width: 1024px) {
