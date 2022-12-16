@@ -1,0 +1,8 @@
+.aboutPage {
+    height: calc(100vh - 65px);
+    background-color: #faf9f6;
+}
+
+.cardStyle {
+    box-sizing: border-box;
+}

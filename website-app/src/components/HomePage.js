@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { FaNodeJs } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { FaNodeJs, FaReact, FaHtml5, FaCss3Alt} from 'react-icons/fa';
+import { SiJavascript } from 'react-icons/si';
 import './styles/HomePage.css';
 import portfolio from '../img/unnamed.JPG';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { IconContext } from 'react-icons';
 
 export default function HomePage() {
     useEffect(() => {
@@ -12,10 +14,11 @@ export default function HomePage() {
     }, []);
     return (
         <>
+            <IconContext.Provider value={{ color: '#333333', size: '3.5rem'}}>
             <div className='container-fluid containerStyle'>
                 <div className='row d-flex justify-content-center h-50'>
-                    <div className='col-6 d-flex align-items-end justify-content-center'>
-                        <div className='mb-4'>
+                    <div className='col-6 d-flex justify-content-center align-items-center'>
+                        <div>
                             <img src={portfolio} alt='portfolio picture' />
                         </div>
                     </div>
@@ -36,7 +39,27 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
+                <div className='row d-flex justify-content-center align-items-end h-25'>
+                    <div className='col-12 d-flex justify-content-center align-items-center mb-1 h-50'>
+                        <span className='me-3 mw-3'>
+                            <FaNodeJs/>
+                        </span>
+                        <span className='me-3 mw-3'>
+                            <SiJavascript/>
+                        </span>
+                        <span className='me-3 mw-3'>
+                            <FaReact/>
+                        </span>
+                        <span className='me-3 mw-3'>
+                            <FaHtml5/>
+                        </span>
+                        <span className='me-3 mw-3'>
+                            <FaCss3Alt/>
+                        </span>
+                    </div>
+                </div>
             </div>
+            </IconContext.Provider>
         </>
     );
 }

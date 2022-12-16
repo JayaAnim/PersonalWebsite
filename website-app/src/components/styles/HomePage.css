@@ -6,7 +6,9 @@
 
 .containerStyle {
     height: calc(100vh - 65px);
-    background-color: 	#FAF9F6;
+    background-image: url('../background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 img {
@@ -26,6 +28,15 @@ h2 {
 p {
     font-weight: medium;
     font-size: 1.2rem;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(calc(-100vh + 65px)) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-50vh) rotate(720deg);
+    }
 }
 
 @media only screen and (max-width: 560px) {
