@@ -19,7 +19,7 @@ export default function HomePage() {
                 <div className='row d-flex justify-content-center h-50'>
                     <div className='col-6 d-flex justify-content-center align-items-center'>
                         <div>
-                            <img src={portfolio} alt='portfolio picture' />
+                            <img src={portfolio} alt='portfolio picture' className='home-image'/>
                         </div>
                     </div>
                 </div>

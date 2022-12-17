@@ -11,7 +11,7 @@
     background-size: cover;
 }
 
-img {
+.home-image {
     border-radius: 50%;
     height: 40vh;
 }
