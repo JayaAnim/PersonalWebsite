@@ -7,11 +7,14 @@ import LinkData from "../data/LinkData";
 
 export default function UserNav() {
   const navRef = useRef();
+  const buttonRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
 
   const showNavbar = () => {
     setIsOpen(!isOpen);
     navRef.current.classList.toggle('responsive_nav');
+    buttonRef.current.classList.toggle('hide-button');
+    console.log(buttonRef.current.classList);
   }
 
   return (
@@ -39,7 +42,7 @@ export default function UserNav() {
           <FaTimes />
         </button>
       </nav>
-      <button className='nav-btn' onClick={showNavbar}>
+      <button ref={buttonRef} className='nav-btn' onClick={showNavbar}>
         <FaBars />
       </button>
     </header>
