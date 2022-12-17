@@ -13,7 +13,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route exact path='/' element={ <> <UserNav/> <HomePage/> </> }/>
-            <Route path='AboutPage' element={ <> <UserNav/> <AboutPage/> </> }/>
+            <Route path='AboutPage' element={<> <UserNav/> <AboutPage/> </> }/>
             <Route path='ProjectPage' element={ <> <UserNav/> <ProjectPage/> </> }/>
             <Route path='ResumePage' element={ <> <UserNav/> <ResumePage/> </> }/>
             <Route path='ContactPage' element={ <> <UserNav/> <ContactPage/> </> }/>
