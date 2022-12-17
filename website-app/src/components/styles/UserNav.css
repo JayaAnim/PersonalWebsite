@@ -63,6 +63,11 @@ header .nav-btn {
         opacity: 1;
     }
 
+    header .hide-button {
+        visibility: hidden;
+        opacity: 0;
+    }
+
     header nav {
         position: fixed;
         top: 0;
