@@ -32,11 +32,10 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    border: solid;
-    border-color: black;
     border-radius: 5%;
-    background-color: white;
-    opacity: .85;
+    background-image: url('../papertexture.png');
+    background-size: cover;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .about-card {
@@ -46,10 +45,6 @@
     width: 50%;
     height: 25%;
     padding: 5%;
-}
-
-.jiggle {
-    animation: jiggle 1.5s;
 }
 
 @keyframes jiggle {
@@ -90,6 +85,8 @@
     }
 }
 
+
+
 @media only screen and (max-width: 1024px) {
     .about-image {
         width: 100%;
@@ -111,5 +108,15 @@
         flex-wrap: wrap;
         align-items: center;
         z-index: 2;
+    }
+
+    .about-card {
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        width: 50%;
+        height: 25%;
+        padding: 5%;
+        opacity: .95;
     }
 }
