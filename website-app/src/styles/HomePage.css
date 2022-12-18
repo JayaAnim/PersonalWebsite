@@ -1,50 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,700;1,500&display=swap');
 
+/* Gives font styling to all pages */
 * {
     font-family: Kanit, sans-serif;
 }
 
+/* Style for page container */
 .containerStyle {
     height: calc(100vh - 65px);
-    background-image: url('../background.svg');
+    background-image: url('../img/background.svg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+/* Profile image styling */
 .home-image {
     border-radius: 50%;
     height: 40vh;
 }
 
-.temp {
-    width: 100vw;
-}
-
+/* H2 styling */
 h2 {
     font-weight: bold;
     font-size: 3rem;
 }
 
+/* Paragraph text styling */
 p {
     font-weight: medium;
     font-size: 1.2rem;
 }
 
-@keyframes animate {
-    0% {
-        transform: translateY(calc(-100vh + 65px)) rotate(0deg);
-    }
-    100% {
-        transform: translateY(-50vh) rotate(720deg);
-    }
-}
-
 @media only screen and (max-width: 560px) {
+
+    /* Resize profile image on smaller screens */
     img {
         border-radius: 50%;
         height: 60vw;
     }
 
+    /* Resize H2 on smaller screens */
     h2 {
         font-weight: medium;
         font-size: 2rem;
