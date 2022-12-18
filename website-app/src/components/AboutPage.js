@@ -70,7 +70,6 @@ function Card(props) {
     const delay = props.delay;
     const zoom = props.zoom;
 
-
     return (
         <>
             <div className='about-card'>
