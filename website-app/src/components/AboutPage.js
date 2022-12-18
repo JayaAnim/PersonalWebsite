@@ -5,11 +5,7 @@ import Aos from 'aos';
 import { cardNames } from '../data/CardData.js';
 
 export default function AboutPage() {
-    // Initializes animate on screen effect
-    useEffect(() => {
-        Aos.init({duration: 1500});
-    }, []);
-
+    /*
     // Calls jiggle function every 3.75 seconds
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -21,7 +17,7 @@ export default function AboutPage() {
 
     // Randomly selects card and creates jiggle effect
     const jiggleRandomCard = () => {
-        const cards = document.querySelectorAll('.card-col');
+        const cards = document.querySelectorAll('.about-card');
     
         const randomIndex = Math.floor(Math.random() * cards.length);
 
@@ -36,14 +32,14 @@ export default function AboutPage() {
         }, 1500);
 
     }
-
+    */
     return (
         <>
             <div className='container-fluid aboutPage'>
                 {/*<img src={portrait} alt='portrait' className='about-image'/>*/}
                 <div className='about-image'></div>
                 <div className='row d-flex align-items-center justify-content-end h-100'>
-                    <div className='card-container'>
+                    <div className='page-column'>
                         {cardNames.map((o, index) => {
                             return (
                                 <Card key={index} textContent={o.name} delay={o.delay} zoom={o.zoom}/>
@@ -64,12 +60,16 @@ function Card(props) {
 
     const handleClick = () => {
         setIsExpanded(!isExpanded);
+        console.log(isExpanded);
     }
+    //{`card-col ${isExpanded ? 'expanded' : ''}`}
     return (
         <>
-            <div className={`about-card ${isExpanded ? 'expanded' : ''}`}>
-                <div data-aos={zoom} data-aos-delay={delay} className='card-col' onClick={handleClick}>
-                    <span className='text-center'>{textContent}</span>
+            <div className='card-container'>
+                <div className={`about-card ${isExpanded ? 'expanded' : ''}`} onClick={handleClick}>
+                    <div className='card-front'>
+                        <span className='text-center'>{textContent}</span>
+                    </div>
                 </div>
             </div>
         </>
