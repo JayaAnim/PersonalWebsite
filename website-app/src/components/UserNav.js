@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from 'react-icons/fa';
-import './styles/UserNav.css';
+import '../styles/UserNav.css';
 import '../data/LinkData'
 import LinkData from "../data/LinkData";
 
