@@ -26,20 +26,29 @@ export default function AboutPage() {
 function Card(props) {
     const [isExpanded, setIsExpanded] = useState(false);
     const [style, setStyle] = useState({});
+    const [contentStyle, setContentStyle] = useState({});
     const parentRef = props.parentRef;
     const cardRef = useRef();
 
     useEffect(() => {
         if (isExpanded) {
+            console.log(cardRef.current.offsetLeft);
             setStyle({
-                transform: `translate(${-1 * (cardRef.current.offsetLeft - parentRef.current.offsetLeft)}px, ${-1 * (cardRef.current.offsetTop - parentRef.current.offsetTop)}px)`,
-                height: `${parentRef.current.offsetHeight}px`,
+                transform: `translate(${-1 * (cardRef.current.offsetLeft)}px, ${-1 * (cardRef.current.offsetTop)}px)`,
                 zIndex: 5,
+                transition: '1s'
+            });
+            setContentStyle({
+                width: `${parentRef.current.offsetWidth}px `,
+                height: `${parentRef.current.offsetHeight}px`,
                 transition: '1s'
             });
         } else {
             setStyle({
                 transform: 'translate(0, 0)',
+                transition: '1s'
+            });
+            setContentStyle({
                 transition: '1s'
             });
         }
@@ -52,7 +61,7 @@ function Card(props) {
     }
     return (
         <div ref={cardRef} className='about-card' onClick={handleClick} style={style}>
-            <div className='card-front'>
+            <div className='card-front' style={contentStyle}>
                 <p>hi</p>
             </div>
         </div>
