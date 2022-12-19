@@ -14,7 +14,6 @@ export default function UserNav() {
     setIsOpen(!isOpen);
     navRef.current.classList.toggle('responsive_nav');
     buttonRef.current.classList.toggle('hide-button');
-    console.log(buttonRef.current.classList);
   }
 
   return (
