@@ -1,7 +1,11 @@
 
-.aboutPage { 
+.about-page-container { 
     height: calc(100vh - 65px);
     background-color: #faf9f6;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
 }
 
 .about-image {
@@ -12,14 +16,56 @@
     position: absolute;
     left: -2px;
     bottom: 0;
-    z-index: 1;
     background-image: url('../img/largeaboutpage.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-@media only screen and (max-width: 1024px) {
+.content-container {
+    height: 80%;
+    width: 50%;
+}
 
+.card-container {
+    display: grid;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+    background-color: blue;
+}
+
+.about-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    height: 75%;
+    width: 75%;
+    border-radius: 5%;
+    background-image: url('../img/papertexture.png');
+    background-size: cover;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    z-index: 2;
+    opacity: 1;
+    top: 0;
+    left: 0;
+}
+
+.card-front {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@media only screen and (max-width: 1024px) {
     .about-image {
         width: 100%;
         height: 70vh;
@@ -28,9 +74,29 @@
         position: absolute;
         left: -2px;
         bottom: 9vh;
-        z-index: 1;
         background-image: url('../img/smallaboutpage.png');
         background-size: contain;
         background-repeat: no-repeat;
+    }
+
+    .content-container {
+        height: 80%;
+        width: 100%;
+    }
+
+    .about-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-self: center;
+        height: 50%;
+        width: 75%;
+        border-radius: 5%;
+        background-image: url('../img/papertexture.png');
+        background-size: cover;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        z-index: 2;
+        opacity: .95;
     }
 }
