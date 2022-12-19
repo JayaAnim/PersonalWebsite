@@ -11,33 +11,44 @@ export default function Card(props) {
     const [isExpanded, setIsExpanded] = useState(false);
     const [style, setStyle] = useState({});
     const containerRef = useRef();
+    const cardRef = useRef();
 
     useEffect(() => {
+        let offsetY;
+        if (window.innerWidth <= 1024) {
+            offsetY = cardRef.current.offsetTop + containerRef.current.offsetTop - props.parentTop;
+        } else {
+            offsetY = cardRef.current.offsetTop + containerRef.current.offsetTop - 65;
+        }
+        let offsetX = cardRef.current.offsetLeft + containerRef.current.offsetLeft - props.parentLeft;
+        
         if (isExpanded) {
+            containerRef.current.style.opacity = '1';
             setStyle({
-                transform: `translate(-${containerRef.current.offsetLeft - props.parentLeft}px, -${containerRef.current.offsetTop -65}px)`,
-                height: `${props.parentHeight * .9}px`,
-                zIndex: '5',
-                transition: '1.5s'
+                transform: `translate(${-1 * (offsetX)}px, ${-1 * (offsetY)}px)`,
+                height: `${props.parentHeight}px`,
+                width: `${props.parentWidth}px`,
+                zIndex: 5,
+                transition: '1s'
             });
         } else {
+            containerRef.current.style.opacity = '.95';
             setStyle({
                 transform: `translate(0px, 0px)`,
-                transition: '1.5s'
+                transition: '1s'
             });
         }
     }, [isExpanded]);
 
-    // height: '75vh',
+    //  height: `${props.parentHeight * .9}px`,
     const handleClick = () => {
         setIsExpanded(!isExpanded);
-        //containerRef.style.transform = `translate(${containerRef.current.offsetTop}px, ${containerRef.current.offsetLeft}px)`;
     }
 
     return (
         <>
-            <div ref={containerRef} className='card-container bg-danger'>
-                <div className='about-card' onClick={handleClick} style={style}>
+            <div ref={containerRef} className='card-container'>
+                <div ref={cardRef} className='about-card' onClick={handleClick} style={style}>
                     <div className='card-front'>
                         <span className='text-center'>{textContent}</span>
                     </div>

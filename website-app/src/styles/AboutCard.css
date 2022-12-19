@@ -9,7 +9,6 @@
 }
 
 .about-card {
-    position: relative;
     width: 100%;
     height: 100%;
     border-radius: 5%;
@@ -30,7 +29,7 @@
 }
 
 .about-card.expanded {
-    animation: expand 1.6s forwards;
+   width: 1000px !important;
 }
 
 @keyframes expand {
