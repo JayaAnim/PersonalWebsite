@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,600;1,200&display=swap');
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.skills h2{
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.progress-bar {
+    background: #959595;
+    width: 600px;
+    height: 10px;
+    border-radius: 5px;
+    overflow: visible;
+}
+
+.progress-bar div {
+    height: 10px;
+    border-radius: 5px;
+    width: 0%;
+    background: darkblue;
+}
+
+.progress-bar div span {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #222;
+    float: right;
+    margin-top: -15px;
+    margin-right: -20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid lightblue;
+}
+
+.cplusplus {
+    animation: cplusplus 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.java {
+    animation: java 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.javascript {
+    animation: javascript 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.html {
+    animation: html 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.sql {
+    animation: sql 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.firebase {
+    animation: firebase 1s linear forwards;
+    animation-delay: 1s;
+}    
+
+.react {
+    animation: react 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.nodejs {
+    animation: nodejs 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.front-end {
+    animation: front-end 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.back-end {
+    animation: back-end 1s linear forwards;
+    animation-delay: 1s;
+}
+
+@keyframes cplusplus {
+    100% {
+        width: 85%;
+    }
+}
+
+@keyframes java {
+    100% {
+        width: 65%;
+    }
+}
+
+@keyframes javascript {
+    100% {
+        width: 75%;
+    }
+}
+
+@keyframes html {
+    100% {
+        width: 80%;
+    }
+}
+
+@keyframes sql {
+    100% {
+        width: 60%;
+    }
+}
+
+@keyframes firebase {
+    100% {
+        width: 55%;
+    }
+}
+
+@keyframes react {
+    100% {
+        width: 80%;
+    }
+}
+
+@keyframes nodejs {
+    100% {
+        width: 50%;
+    }
+}
+
+@keyframes front-end {
+    100% {
+        width: 85%;
+    }
+}
+
+@keyframes back-end {
+    100% {
+        width: 60%;
+    }
+}
+
+

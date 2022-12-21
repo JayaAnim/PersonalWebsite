@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,600;0,800;1,200;1,500&display=swap');
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  list-style: none;
+  padding-left: 0;
+}
+
+.education-item {
+  overflow: auto;
+  padding-left: 0;
+  flex: 0 0 auto;
+  border-bottom: 2px #404B51 dotted;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.education-item-content-1 {
+  font-family: Kanit, sans-serif;
+  font-weight: 800;
+  float: left;
+  font-size: 1.4rem;
+}
+
+.education-item-content-2 {
+  font-family: Kanit, sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  float: right;
+  font-size: 1.4rem;
+}
+
+.education-classes-header {
+  text-align: center;
+  font-family: Kanit, sans-serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+}
+.education-classes-subheader {
+  text-align: center;
+  font-family: Kanit, sans-serif;
+  font-weight: 200;
+  font-size: .6rem;
+}
+
+@media only screen and (max-height: 895px) {
+  .education-item-content-1 {
+    font-family: Kanit, sans-serif;
+    font-weight: 800;
+    float: left;
+    font-size: 1rem;
+  }
+  
+  .education-item-content-2 {
+    font-family: Kanit, sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    float: right;
+    font-size: 1rem;
+  }
+  
+  .education-classes-header {
+    text-align: center;
+    font-family: Kanit, sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+  }
+  .education-classes-subheader {
+    text-align: center;
+    font-family: Kanit, sans-serif;
+    font-weight: 200;
+    font-size: .6rem;
+  }
+}
