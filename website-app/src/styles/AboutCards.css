@@ -1,0 +1,57 @@
+.about-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    height: 75%;
+    width: 75%;
+}
+
+.card-front {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5%;
+    opacity: 1;
+    background-image: url('../img/papertexture.png');
+    background-size: cover;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+@media only screen and (max-width: 1024px) {
+    .about-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-self: center;
+        height: 50%;
+        width: 75%;
+    }
+
+    .card-front {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5%;
+        opacity: .95;
+        background-image: url('../img/papertexture.png');
+        background-size: cover;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+}
