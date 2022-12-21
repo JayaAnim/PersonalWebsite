@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,600;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,600;0,800;1,200;1,500&display=swap');
 
 .skills-container {
     display: flex;
@@ -6,8 +6,7 @@
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding: 5%;
 }
 
 .skills h2{
@@ -16,11 +15,16 @@
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 16px;
+    font-style: bold;
+}
+
+.skills {
+    width: 100%;
 }
 
 .progress-bar {
     background: #959595;
-    width: 600px;
+    width: 100%;
     height: 10px;
     border-radius: 5px;
     overflow: visible;
