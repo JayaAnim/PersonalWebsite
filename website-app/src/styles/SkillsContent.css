@@ -34,7 +34,8 @@
     height: 10px;
     border-radius: 5px;
     width: 0%;
-    background: darkblue;
+    background: rgb(30,110,133);
+    background: linear-gradient(90deg, rgba(30,110,133,1) 45%, rgba(43,67,105,1) 65%);
 }
 
 .progress-bar div span {

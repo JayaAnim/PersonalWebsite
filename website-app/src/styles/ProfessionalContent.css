@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,600;0,800;1,200;1,500&display=swap');
+
+.professional-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 5%;
+    overflow: hidden;
+}
+
+.professional-header {
+    font-size: 3em;
+    font-weight: 800;
+    font-style: bold;
+    margin: 0;
+}
+
+.professional-content {
+    font-size: 1.5em;
+    font-weight: 400;
+    text-justify: left;
+}
+
+a {
+    text-decoration: none;
+}
+
+Link {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+    .professional-content {
+        font-size: 1em;
+        font-weight: 400;
+        text-justify: left;
+    }
+}
+  
