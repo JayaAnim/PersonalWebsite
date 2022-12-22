@@ -5,10 +5,11 @@ import Card from '../components/AboutCards.js';
 import Aos from 'aos';
 
 export default function AboutPage() {
+    const cardContainerRef = useRef();
+
     useEffect(() => {
         Aos.init({duration: 1500});
     }, []);
-    const cardContainerRef = useRef();
 
     return (
         <>

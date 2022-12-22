@@ -39,11 +39,10 @@ export default function Card(props) {
         }
     }, [isExpanded]);
 
-    //                height: `${parentRef.current.offsetHeight}px`,
-
     const handleClick = () => {
         setIsExpanded(!isExpanded);
     }
+
     return (
         <div ref={cardRef} className='about-card' onClick={handleClick} style={style}>
             <div className='card-front' style={contentStyle}>
