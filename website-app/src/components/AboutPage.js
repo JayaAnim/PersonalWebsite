@@ -6,10 +6,23 @@ import Aos from 'aos';
 
 export default function AboutPage() {
     const cardContainerRef = useRef();
+    const [numberExpanded, setNumberExpanded] = useState(0);
 
     useEffect(() => {
         Aos.init({duration: 1500});
     }, []);
+
+    useEffect(() => {
+        console.log(numberExpanded);
+    }, [numberExpanded]);
+
+    const handleNewExpand = () => {
+        setNumberExpanded(numberExpanded + 1);
+    }
+
+    const handleNewContract = () => {
+        setNumberExpanded(numberExpanded - 1);
+    }
 
     return (
         <>
@@ -19,7 +32,7 @@ export default function AboutPage() {
                     <div ref={cardContainerRef} className='card-container'>
                         {cardObjects.map((cardObject, index) => {
                             return(
-                                <Card key={index} cardInformation={cardObject} parentRef={cardContainerRef}/>
+                                <Card key={index} cardInformation={cardObject} parentRef={cardContainerRef} handleExpand={handleNewExpand} handleContract={handleNewContract} numberExpanded={numberExpanded}/>
                             );
                         })}
                     </div>
