@@ -26,6 +26,48 @@
     z-index: 2;
 }
 
+@keyframes jiggle {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    12.5% {
+        transform: translate(-10px, 0);
+    }
+
+    25% {
+        transform: translate(10px, 0);
+    }
+
+    37.5% {
+        transform: translate(-10px, 0);
+    }
+
+    50% {
+        transform: translate(10px, 0);
+    }
+
+    62.5% {
+        transform: translate(-10px, 0);
+    }
+
+    75% {
+        transform: translate(10px, 0);
+    }
+
+    87.5% {
+        transform: translate(-10px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.jiggle {
+    animation: jiggle 1.5s;
+}
+
 @media only screen and (max-width: 1024px) {
     .about-card {
         position: relative;
