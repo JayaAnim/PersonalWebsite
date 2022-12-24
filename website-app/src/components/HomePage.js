@@ -13,71 +13,41 @@ export default function HomePage() {
         Aos.init({duration: 1500});
     }, []);
     return (
-        <>
-            <IconContext.Provider value={{ color: '#333333', size: '3.5rem'}}>
-            <div className='container-fluid containerStyle'>
-                <div className='row d-flex justify-content-center h-50'>
-                    <div className='col-6 d-flex justify-content-center align-items-center'>
-                        <div>
-                            <img src={portfolio} alt='portfolio picture' className='home-image'/>
+        <IconContext.Provider value={{ color: '#333333', size: '50%' }}>
+            <div className='homepage-container'>
+                <div className='homepage-header-container'>
+                    <h2 className='homepage-header'>Hi, My Name Is Chase</h2>
+                </div>
+                <div className='homepage-middle-container'>
+                    <div className='homepage-middle-left-container'>
+                        <img src={portfolio} className='homepage-image' alt='picture of chase' />
+                    </div>
+                    <div className='homepage-middle-right-container'>
+                        <div className='homepage-paragraph-container'>
+                            <p className='homepage-paragraph'>
+                                <span data-aos='fade-up' data-aos-delay='100'>I'm an aspring software developer with a passion for web development, UI/UX design, and ML.</span>
+                                <span data-aos='fade-up' data-aos-delay='200'> My personal projects include both web development and data structure and algorithm design problems.</span>
+                                <span data-aos='fade-up' data-aos-delay='300'>I am always open to new projects, internships, or job opportunities. Feel free to <Link to='ContactPage' style={{ textDecoration: 'none' }}>contact me!</Link></span>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div className='row d-flex justify-content-center h-25'>
-                    <div className='col-md-5 col-sm-12 d-flex align-items-start justify-content-center'>
-                        <div className='col'>
-                            <div>
-                                <h2 className='text-center' data-aos='fade-down'>Hi, My Name Is Chase</h2>
-                            </div>
-                            <div className='text-wrap'>
-                                <p className='text-center'>
-                                    <span data-aos='fade-up' data-aos-delay='100'>I'm an aspring software developer with a passion for web development, UI/UX design, and ML.</span>
-                                    <span data-aos='fade-up' data-aos-delay='200'>My personal projects include both web development and data structure and algorithm design problems.</span>
-                                    <span data-aos='fade-up' data-aos-delay='300'>I am always open to new projects, internships, or job opportunities. Feel free to <Link to='ContactPage' style={{textDecoration: 'none'}}>contact me!</Link></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='row d-flex justify-content-center align-items-end h-25'>
-                    <div className='col-12 d-flex justify-content-center align-items-center mb-1 h-50'>
-                        <span className='me-3 mw-3'>
-                            <FaNodeJs/>
-                        </span>
-                        <span className='me-3 mw-3'>
-                            <SiJavascript/>
-                        </span>
-                        <span className='me-3 mw-3'>
-                            <FaReact/>
-                        </span>
-                        <span className='me-3 mw-3'>
-                            <FaHtml5/>
-                        </span>
-                        <span className='me-3 mw-3'>
-                            <FaCss3Alt/>
-                        </span>
-                    </div>
+                <div className='homepage-bottom-container'>
+                    <FaNodeJs/>
+                    <FaReact/>
+                    <FaHtml5/>
+                    <FaCss3Alt/>
+                    <SiJavascript/>
                 </div>
             </div>
-            </IconContext.Provider>
-        </>
+        </IconContext.Provider>
     );
 }
 
-//                         <img src={portfolio} alt='portfolio picture'/>
 /*
-<div className='row d-flex h-100 w-100'>
-<div className='col-12 d-flex justify-content-center align-items-center h-50'>
-    <img src={portfolio} alt='portfolio picture'/>
-</div>
-<div className='col-12 d-flex justify-content-center h-25'>
-    <div classname='col'>
-        <h2>Hi, My Name Is Chase</h2>
-        <p>TADAAAaaaaaaaaaaasssaaaaaa</p>
-    </div>
-</div>
-<div className='col-12 d-flex h-25'>
-    hi
-</div>
-</div>
+paragraph text -
+<span data-aos='fade-up' data-aos-delay='100'>I'm an aspring software developer with a passion for web development, UI/UX design, and ML.</span>
+                                    <span data-aos='fade-up' data-aos-delay='200'>My personal projects include both web development and data structure and algorithm design problems.</span>
+                                    <span data-aos='fade-up' data-aos-delay='300'>I am always open to new projects, internships, or job opportunities. Feel free to <Link to='ContactPage' style={{textDecoration: 'none'}}>contact me!</Link></span>
+header text -hi my name is chase
 */
