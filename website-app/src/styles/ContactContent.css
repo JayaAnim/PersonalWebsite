@@ -45,7 +45,9 @@
     background: #333333;
     border-radius: 1.5em;
     z-index: 9;
-    animation: expandSocials 5s forwards;
+
+    animation: expandSocials 2s forwards;
+    animation-delay: 750ms;
 }
 
 .info-bar::after {
