@@ -1,132 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,600;0,800;1,200;1,500&display=swap');
 
-br {
-    page-break-after: always;
-}
-
 .work-container {
     font-family: Kanit, sans-serif;
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     padding: 5%;
 }
 
-.work-grid {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 33.33% 33.33% 33.33%;
-}
-
-.work-grid-title {
+.work-header {
+    flex: 0 1 auto;
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    margin-left: 2px;
-    margin-right: 2px;
-    overflow: hidden;
-}
-
-.work-grid-title-job {
-    font-size: 2em;
-    font-weight: 800;
-    font-style: bold;
-}
-
-.work-grid-title-duration {
-    font-size: 1.3em;
-    font-weight: 600;
-    font-style: bold;
-}
-
-.work-grid-title-specification {
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.work-grid-title-job-right {
-    font-size: 2em;
-    font-weight: 800;
-    font-style: bold;
-    text-align: right;
-}
-
-.work-grid-title-duration-right {
-    font-size: 1.3em;
-    font-weight: 600;
-    font-style: bold;
-    text-align: right;
-}
-
-.work-grid-title-specification-right {
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: italic;
-    text-align: right;
-}
-
-.work-grid-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 1.5em;
+    background: #4CC1DE;
+    box-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
+    font-family: Kanit, sans-serif;
+    padding: 7px;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    margin-bottom: 5px;
 }
 
-@media only screen and (max-width: 1024px) {
-    .work-grid-content {
+.work-title {
+    font-size: 1em;
+    font-weight: 800;
+    font-style: bold;
+}
+
+.work-title-information {
+    font-size: .75em;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.work-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 0 1em 1em 1em;
+    box-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
+    font-size: 1em;
+    background: #BFFDFB;
+    padding: 7px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-height: 668px) {
+    .work-header {
+        flex: 0 1 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-radius: 1.2em;
+        background: #4CC1DE;
+        box-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
+        font-family: Kanit, sans-serif;
+        padding: 7px;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+    
+    .work-title {
+        font-size: .75em;
+        font-weight: 800;
+        font-style: bold;
+    }
+    
+    .work-title-information {
+        font-size: .5em;
+        font-weight: 600;
+        font-style: italic;
+    }
+    
+    .work-content {
+        flex: 1 1 auto;
         display: flex;
         flex-direction: column;
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        font-size: .75rem;
-    }
-
-    .work-grid-title-job {
-        font-size: 1.5em;
-        font-weight: 800;
-        font-style: bold;
-    }
-    
-    .work-grid-title-duration {
-        font-size: 1em;
-        font-weight: 600;
-        font-style: bold;
-    }
-    
-    .work-grid-title-specification {
-        font-size: .6rem;
-        font-weight: 400;
-        font-style: italic;
-    }
-    
-    .work-grid-title-job-right {
-        font-size: 1.5em;
-        font-weight: 800;
-        font-style: bold;
-        text-align: right;
-    }
-    
-    .work-grid-title-duration-right {
-        font-size: 1em;
-        font-weight: 600;
-        font-style: bold;
-        text-align: right;
-    }
-    
-    .work-grid-title-specification-right {
-        font-size: .6rem;
-        font-weight: 400;
-        font-style: italic;
-        text-align: right;
+        justify-content: space-evenly;
+        border-radius: 0 1em 1em 1em;
+        box-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
+        font-size: .75em;
+        background: #BFFDFB;
+        padding: 7px;
+        margin-bottom: 5px;
     }
 }
-
-
