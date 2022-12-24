@@ -66,9 +66,14 @@ export default function Card({index, cardInformation, parentRef, handleExpand, h
     }
     
     const removeJiggle = () => {
-        if (cardRef.current.classList.contains('jiggle')) {
-            cardRef.current.classList.remove('jiggle');
-            setIsJiggling(false);
+        try {
+            if (cardRef.current.classList.contains('jiggle')) {
+                cardRef.current.classList.remove('jiggle');
+                setIsJiggling(false);
+            }
+        }
+        catch (error) {
+            // Do nothing
         }
     }
 
