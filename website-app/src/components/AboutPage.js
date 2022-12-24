@@ -7,7 +7,7 @@ import Aos from 'aos';
 export default function AboutPage() {
     const cardContainerRef = useRef();
     const [numberExpanded, setNumberExpanded] = useState(0);
-    const [numberToJiggle, setNumberToJiggle] = useState(0);
+    const [numberToJiggle, setNumberToJiggle] = useState(-1);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -46,7 +46,7 @@ export default function AboutPage() {
                     <div ref={cardContainerRef} className='card-container'>
                         {cardObjects.map((cardObject, index) => {
                             return(
-                                <Card key={index} index={index} cardInformation={cardObject} parentRef={cardContainerRef} handleExpand={handleNewExpand} handleContract={handleNewContract} numberExpanded={numberExpanded} numberToJiggle={numberToJiggle}/>
+                                <Card key={index} index={index} fade={cardObject.fade} delay={cardObject.delay} cardInformation={cardObject} parentRef={cardContainerRef} handleExpand={handleNewExpand} handleContract={handleNewContract} numberExpanded={numberExpanded} numberToJiggle={numberToJiggle}/>
                             );
                         })}
                     </div>

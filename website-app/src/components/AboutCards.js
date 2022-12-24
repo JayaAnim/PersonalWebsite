@@ -3,7 +3,7 @@ import { TbHandClick } from 'react-icons/tb';
 import '../styles/AboutCards.css';
 
 
-export default function Card({index, cardInformation, parentRef, handleExpand, handleContract, numberExpanded, numberToJiggle}) {
+export default function Card({index, fade, delay, cardInformation, parentRef, handleExpand, handleContract, numberExpanded, numberToJiggle}) {
     const [isExpanded, setIsExpanded] = useState(false);
     const [style, setStyle] = useState({});
     const [contentStyle, setContentStyle] = useState({});
@@ -81,7 +81,7 @@ export default function Card({index, cardInformation, parentRef, handleExpand, h
 
     return (
         <div ref={cardRef} className='about-card' onClick={handleClick} style={style}>
-            <div className='card-front' style={contentStyle}>
+            <div className='card-front' style={contentStyle} data-aos={fade} data-aos-delay={delay} data-aos-duration='3000'>
                 {!isExpanded && <h4 className='text-center'>{isJiggling ? <TbHandClick className='click-icon'/> : cardInformation.name}</h4>}
                 {isExpanded && <span data-aos='zoom-out' data-aos-delay='600'>{cardInformation.content}</span>}
             </div>
