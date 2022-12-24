@@ -11,12 +11,18 @@ export default function ResumePage() {
     const imageThreeRef = useRef();
     
     useEffect(() => {
+        const timer = setTimeout(() => {
+            rotate();
+        }, 500);
         const intervalId = setInterval(() => {
             rotate();
         }, 3750);
       
           // Clean up the interval when the component unmounts
-          return () => clearInterval(intervalId);
+          return () => {
+            clearInterval(intervalId);
+            clearTimeout(timer);
+          }
     }, []);
 
     const rotate = () => {
