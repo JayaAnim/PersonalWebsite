@@ -2,44 +2,40 @@ import '../styles/EducationContent.css';
 
 export default function EducationContent() {
     return (
-        <ul className='education-container'>
-            <li className='education-item'>
-                <span className='education-item-content-1'>University</span>
-                <span className='education-item-content-2'>University of West Florida</span>
-            </li>
-            <li className='education-item'>
-                <span className='education-item-content-1'>Major</span>
-                <span className='education-item-content-2'>Computer Science</span>
-            </li>
-            <li className='education-item'>
-                <span className='education-item-content-1'>Credits Towards Degree</span>
-                <span className='education-item-content-2'>108/120</span>
-            </li>
-            <li className='education-classes-header'>
-                Recent Relevant Classes
-                <div className='education-classes-subheader'>All Classes Not Included</div>
-            </li>
-            <li className='education-item'>
-                <span className='education-item-content-1'>Data Str And Alg II</span>
-            </li>
-            <li className='education-item'>
-                <span className='education-item-content-1'>	Advanced Computer Programming</span>
-            </li>
-            <li className='education-item'>
-                <span className='education-item-content-1'>Client-Side Programming</span>
-            </li>
-            <li className='education-item'>
-                <span className='education-item-content-1'>Discrete Structures</span>
-            </li>
-            <li className='education-item'>
-                <span className='education-item-content-1'>	Database Systems</span>
-            </li>
-            <li className='education-item'>
-                <span className='education-item-content-1'>Data Structures & Algorithms I</span>
-            </li>
-            <li className='education-item'>
-                <span className='education-item-content-1'>Algorithm and Program Design</span>
-            </li>
-        </ul>
+        <div className='education-container'>
+            <dl className='education-list-container'>
+                <div className='education-item'>
+                    <dt>University</dt>
+                    <dd>University of West Florida</dd>
+                </div>
+                <div className='education-item'>
+                    <dt>Major</dt>
+                    <dd>Computer Science</dd>
+                </div>
+                <div className='education-item'>
+                    <dt>Credits Towards Degree</dt>
+                    <dd>108 credits out of 120 credits</dd>
+                </div>
+                <div>
+                    <span className='education-header'>Relevant Classes</span>
+                    <span className='education-subtext'>all classes not included</span>
+                </div>
+                <div className='education-item'>
+                    <dt>Data Str and Alg II</dt>
+                </div>
+                <div className='education-item'>
+                    <dt>Advanced Computer Programming</dt>
+                </div>
+                <div className='education-item'>
+                    <dt>Client Side Programming</dt>
+                </div>
+                <div className='education-item'>
+                    <dt>Discrete Structures</dt>
+                </div>
+                <div className='education-item'>
+                    <dt>Database Systems</dt>
+                </div>
+            </dl>
+        </div>
     );
 }
