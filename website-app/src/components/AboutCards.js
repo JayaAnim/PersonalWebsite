@@ -11,17 +11,18 @@ export default function Card({index, fade, delay, cardInformation, parentRef, ha
     const cardRef = useRef();
 
     useEffect(() => {
-        if (numberExpanded !== 0) removeJiggle();
-        else if (index === numberToJiggle && numberExpanded === 0) {
-            setTimeout(() => {
-                addJiggle();
-            }, 500);
+        if (numberExpanded != 0) removeJiggle();
+    }, [numberExpanded]);
+
+    useEffect(() => {
+        if (index === numberToJiggle && numberExpanded === 0) {
+            addJiggle();
 
             setTimeout(() => {
                 removeJiggle();
             }, 1500);
         }
-    }, [numberExpanded, numberToJiggle]);
+    }, [numberToJiggle]);
 
     useEffect(() => {
         if (isExpanded) {
@@ -59,24 +60,18 @@ export default function Card({index, fade, delay, cardInformation, parentRef, ha
     }
 
     const addJiggle = () => {
-        if (!cardRef.current.classList.contains('jiggle') && !isExpanded && !isJiggling) {
+        if (!cardRef.current.classList.contains('jiggle')) {
             cardRef.current.classList.add('jiggle');
             setIsJiggling(true);
         }
     }
     
     const removeJiggle = () => {
-        try {
-            if (cardRef.current.classList.contains('jiggle')) {
-                cardRef.current.classList.remove('jiggle');
-                setIsJiggling(false);
-            }
-        }
-        catch (error) {
-            // Do nothing
+        if (cardRef.current.classList.contains('jiggle')) {
+            cardRef.current.classList.remove('jiggle');
+            setIsJiggling(false);
         }
     }
-
 
 
     return (
@@ -88,10 +83,3 @@ export default function Card({index, fade, delay, cardInformation, parentRef, ha
         </div>
     );
 }
-
-
-
-
-
-
-
