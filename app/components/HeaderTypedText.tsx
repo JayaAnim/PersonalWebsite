@@ -37,8 +37,8 @@ const HeaderTypedText: React.FC = () => {
   return (
     <p className="text-2xl md:text-3xl">
       <span className="text-white">{whiteText}</span>
-      <span className="text-[#00FFFF]">{blueText}</span>
-      <span className="text-[#00FFFF] animate-pulse">|</span>
+      <span className="text-neon-green">{blueText}</span>
+      <span className="text-neon-green animate-pulse">|</span>
     </p>
   );
 };

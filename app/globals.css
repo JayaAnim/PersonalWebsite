@@ -21,3 +21,15 @@ body {
     text-wrap: balance;
   }
 }
+
+.skillblock-circular-gradient {
+  background: radial-gradient(circle, theme('colors.neon-green') 0%, theme('colors.electric-blue') 25%, theme('colors.neon-green') 50%, theme('colors.electric-blue') 75%, theme('colors.neon-green') 100%);
+  background-size: 400% 400%;
+  animation: skillblock-gradient-animation 15s ease infinite;
+}
+
+@keyframes skillblock-gradient-animation {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
