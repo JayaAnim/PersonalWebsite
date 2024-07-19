@@ -1,28 +1,22 @@
 import React from 'react';
 import Header from './components/Header';
-import Navbar from './components/Navbar';
 import ExperienceSection from './components/ExperienceSection';
+import SkillsSection from './components/SkillsSection';
 
 const Home: React.FC = () => {
     return (
         <main>
-            <div>
+            <div className="relative z-10">
                 <Header />
-                <div className="relative h-3 w-screen bg-[#000000]">
-                </div>
-                <Navbar />
+
                 <ExperienceSection/>
+                <SkillsSection/>
 
-
-                <div className="h-screen w-screen bg-[#000000]">
+                <div className="h-screen w-screen bg-dark-black">
                     Section
                 </div>
 
-                <div className="h-screen w-screen bg-[#000000]">
-                    Section
-                </div>
-
-                <div className="h-screen w-screen bg-[#000000]">
+                <div className="h-screen w-screen bg-dark-black">
                     Section
                 </div>
             </div>

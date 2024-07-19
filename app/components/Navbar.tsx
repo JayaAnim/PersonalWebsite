@@ -2,87 +2,45 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 const Navbar: React.FC = () => {
-    const [isSticky, setIsSticky] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navRef = useRef<HTMLDivElement>(null);
-
+    const navRef = useRef<HTMLElement>(null);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+    const [isSticky, setIsSticky] = useState(false);
+    
     useEffect(() => {
-        const navElement = navRef.current;
-        if (!navElement) return;
-        const navbarPosition = navElement.offsetTop;
+
+
+        if (!navRef?.current?.offsetTop) return;
+
+        const initialNavOffset = navRef.current.offsetTop;
 
         const handleScroll = () => {
-            if (window.pageYOffset > navbarPosition) {
-                setIsSticky(true);
-            } else {
+            const currentScrollPosition = window.scrollY;
+
+            if (initialNavOffset && currentScrollPosition >= initialNavOffset) {
+                setIsSticky(true); 
+            }
+            else {
                 setIsSticky(false);
             }
         };
 
+        handleScroll();
+
         window.addEventListener('scroll', handleScroll);
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
     return (
-        <nav
-            ref={navRef}
-            className={`bg-black border border-white transition-all duration-300 ${isSticky ? 'fixed top-0 left-0 right-0 shadow-md' : ''
-                }`}
-        >
-
-        </nav>
-    );
-};
-
-export default Navbar;
-
-
-/*
-'use client';
-import React, { useEffect, useRef, useState } from 'react';
-
-const Navbar: React.FC = () => {
-    const [isSticky, setIsSticky] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const navElement = navRef.current;
-        if (!navElement) return;
-        const navbarPosition = navElement.offsetTop;
-
-        const handleScroll = () => {
-            if (window.pageYOffset > navbarPosition) {
-                setIsSticky(true);
-            } else {
-                setIsSticky(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    return (
-        <nav
-            ref={navRef}
-            className={`bg-black border border-white transition-all duration-300 ${isSticky ? 'fixed top-0 left-0 right-0 shadow-md' : ''
-                }`}
-        >
+        <>
+            <nav ref={navRef} className={`z-50 w-full bg-black border border-white transition-all duration-300 ${isSticky ? 'fixed top-0 left-0' : 'absolute bottom-0 left-0'}`}>
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="https://yourwebsite.com" className="flex items-center space-x-3 rtl:space-x-reverse">
+                <a href="https://github.com/JayaAnim" className="flex items-center space-x-3 rtl:space-x-reverse" target="_blank">
                     <img src="/github.svg" alt="GitHub" className="h-8 w-8 invert" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Chase</span>
                 </a>
@@ -102,26 +60,26 @@ const Navbar: React.FC = () => {
                 <div className={`${isMenuOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-default">
                     <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-white rounded-lg bg-black md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                         <li>
-                            <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-blue-500 md:hover:bg-transparent md:border-0 md:p-0" aria-current="page">Landing</a>
+                            <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-neon-green md:hover:bg-transparent md:border-0 md:p-0" aria-current="page">Landing</a>
                         </li>
                         <li>
-                            <a href="#about" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-blue-500 md:hover:bg-transparent md:border-0 md:p-0">Experience</a>
+                            <a href="#about" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-neon-green md:hover:bg-transparent md:border-0 md:p-0">Experience</a>
                         </li>
                         <li>
-                            <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-blue-500 md:hover:bg-transparent md:border-0 md:p-0">Skills</a>
+                            <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-neon-green md:hover:bg-transparent md:border-0 md:p-0">Skills</a>
                         </li>
                         <li>
-                            <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-blue-500 md:hover:bg-transparent md:border-0 md:p-0">Projects</a>
+                            <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-neon-green md:hover:bg-transparent md:border-0 md:p-0">Projects</a>
                         </li>
                         <li>
-                            <a href="#contact" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-blue-500 md:hover:bg-transparent md:border-0 md:p-0">Contact Me</a>
+                            <a href="#contact" className="block py-2 px-3 text-white rounded hover:bg-gray-700 hover:text-neon-green md:hover:bg-transparent md:border-0 md:p-0">Contact Me</a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav>
+            </nav>
+        </>
     );
 };
 
 export default Navbar;
-*/
