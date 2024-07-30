@@ -1,11 +1,17 @@
 import React from 'react';
 import HeaderTypedText from './HeaderTypedText';
 import Navbar from './Navbar';
+import FallingLetterWrapper from './FallingLetter';
+
+
 
 const Header: React.FC = () => {
+
+
     return (
-        <header className="relative z-20 h-screen w-screen bg-[url('/header_bg.svg')] bg-cover bg-center flex flex-col items-center justify-center space-y-8">
+        <header className="relative z-20 h-screen w-screen bg-[url('/header_bg.svg')] bg-cover bg-center flex flex-col items-center justify-center">
             <Navbar />
+            <FallingLetterWrapper/>
             <h1 className="text-4xl md:text-6xl font-bold text-center">
                 <span className="text-white">Hi, I'm </span>
                 <span className="text-electric-blue">Chase</span>
@@ -19,19 +25,8 @@ const Header: React.FC = () => {
                     Contact Me
                 </button>
             </div>
-
         </header>
     );
 };
 
 export default Header;
-
-
-/*
-
-            <button className="absolute bottom-8 w-12 h-12 rounded-full border-2 border-white flex items-center justify-center transition-colors duration-300 hover:bg-[#00FFFF] hover:bg-opacity-20">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-            </button>
-*/

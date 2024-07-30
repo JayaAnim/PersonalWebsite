@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
     content: [
@@ -23,6 +24,17 @@ const config: Config = {
             }
         },
     },
-    plugins: [],
+    plugins: [
+        plugin(function({ addUtilities }) {
+          const newUtilities: { [key: string]: { '--fall-distance': string } } = {}
+          for (let i = 20; i <= 45; i++) {
+            newUtilities[`.fall-${i}`] = {
+              '--fall-distance': `${i}vh`,
+            }
+          }
+          addUtilities(newUtilities)
+        })
+    ],
 };
+
 export default config;

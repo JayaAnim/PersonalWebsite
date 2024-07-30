@@ -1,6 +1,8 @@
 import React from 'react';
 import ExperienceScrollLine from './ExperienceScrollLine';
 
+import { ExperienceItemProps } from '@/types';
+
 const ExperienceSection: React.FC = () => {
     return (
         <section id="experience" className="relative z-10 min-h-screen w-screen bg-dark-black p-8">
@@ -60,13 +62,6 @@ const ExperienceSection: React.FC = () => {
         </section>
     );
 };
-
-interface ExperienceItemProps {
-    title: string;
-    company: string;
-    date: string;
-    responsibilities: string[];
-}
 
 const ExperienceItem: React.FC<ExperienceItemProps> = ({ title, company, date, responsibilities }) => {
     return (
