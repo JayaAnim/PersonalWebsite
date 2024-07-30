@@ -33,3 +33,30 @@ body {
   50% { background-position: 100% 50% }
   100% { background-position: 0% 50% }
 }
+
+@keyframes fall-and-fade {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(var(--fall-distance, 30vh)) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes reset-fall-and-fade {
+    from {
+        transform: translateY(var(--fall-distance, 30vh));
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+.falling-letter {
+    position: absolute;
+    animation: fall-and-fade 5s ease-out infinite, reset-fall-and-fade 0s 5s infinite;
+}
