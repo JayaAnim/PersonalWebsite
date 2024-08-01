@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
             <nav ref={navRef} className={`z-50 w-full bg-black border border-white transition-all duration-300 ${isSticky ? 'fixed top-0 left-0' : 'absolute bottom-0 left-0'}`}>
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="https://github.com/JayaAnim" className="flex items-center space-x-3 rtl:space-x-reverse" target="_blank">
-                    <img src="/github.svg" alt="GitHub" className="h-8 w-8 invert" />
+                    <img src="/github.svg" alt="GitHub" className="h-8 w-8" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Chase</span>
                 </a>
                 <button

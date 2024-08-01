@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderTypedText from './HeaderTypedText';
 import Navbar from './Navbar';
 import FallingLetterWrapper from './FallingLetter';
+import HeaderButtons from './HeaderButtons';
 
 
 
@@ -17,14 +18,7 @@ const Header: React.FC = () => {
                 <span className="text-electric-blue">Chase</span>
             </h1>
             <HeaderTypedText />
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-4">
-                <button className="px-6 py-3 rounded-full font-semibold transition-colors duration-300 bg-neon-green text-black hover:bg-[#00CCCC]">
-                    Download CV
-                </button>
-                <button className="px-6 py-3 rounded-full font-semibold transition-colors duration-300 bg-white text-black hover:bg-gray-200">
-                    Contact Me
-                </button>
-            </div>
+            <HeaderButtons/>
         </header>
     );
 };

@@ -4,16 +4,27 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { SkillProps, Position } from '@/types';
+import { SkillProps, Position, SkillBlockProps } from '@/types';
 
-const SkillBlock: React.FC<SkillProps> = ({ name, alt, logo, link }) => {
+const SkillBlock: React.FC<SkillBlockProps> = ({ name, alt, logo, link, mousePosition }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
-    const [mousePosition, setMousePosition] = useState<Position>({ x: 0, y: 0 });
-    const [isOverContent, setIsOverContent] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
+    const [logoHovered, setLogoHovered] = useState(false);
+    const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
+    const ref = useRef<HTMLDivElement | null>(null);
+    const logoRef = useRef<HTMLAnchorElement | null>(null);
+
+
 
     useEffect(() => {
+
+        const updatePosition = () => {
+            if (ref.current && isVisible) {
+                const rect = ref.current.getBoundingClientRect();
+                setPosition({ x: rect.left, y: rect.top });
+            }
+        }
+
         const currentRef = ref.current;
 
         const observer = new IntersectionObserver(
@@ -25,69 +36,57 @@ const SkillBlock: React.FC<SkillProps> = ({ name, alt, logo, link }) => {
 
         if (currentRef) {
             observer.observe(currentRef);
+            updatePosition();
         }
 
-        const handleScroll = () => {
-            if (currentRef) {
-                const rect = currentRef.getBoundingClientRect();
-                setMousePosition(prevPosition => ({
-                    x: prevPosition.x - rect.left,
-                    y: prevPosition.y - rect.top
-                }));
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', updatePosition);
+        window.addEventListener('resize', updatePosition);
 
         return () => {
             if (currentRef) {
                 observer.unobserve(currentRef);
             }
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', updatePosition);
+            window.removeEventListener('resize', updatePosition);
         };
-    }, []);
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
+    }, [isVisible]);
 
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
+    useEffect(() => {
+        const currentRef = ref.current;
 
-    const handleContentEnter = () => {
-        setIsOverContent(true);
-    }
+            // If box reference, box is visible, and mouse inside box bounds
+            if (currentRef && isVisible && mousePosition.y > position.y && mousePosition.y < (position.y + currentRef.clientHeight) && mousePosition.x > position.x && mousePosition.x < (position.x + currentRef.clientWidth)) {
 
-    const handleContentLeave = () => {
-        setIsOverContent(false);
-    }
+                setIsHovered(true);
 
-    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-        if (ref.current) {
-            const rect = ref.current.getBoundingClientRect();
-            setMousePosition({
-                x: event.clientX - rect.left,
-                y: event.clientY - rect.top
-            });
-        }
-    };
+                const currentLogoRef = logoRef.current;
+
+                // If logo reference, and mouse inside logo bounds
+                if (currentLogoRef && mousePosition.y > (position.y + currentLogoRef.offsetTop) && mousePosition.y < (position.y + currentLogoRef.clientHeight + currentLogoRef.offsetTop) && mousePosition.x > (position.x + currentLogoRef.offsetLeft) && mousePosition.x < (position.x + currentLogoRef.clientWidth + currentLogoRef.offsetLeft)) {
+                    setLogoHovered(true);
+                }
+                else {
+                    setLogoHovered(false);
+                }
+
+            }
+            else {
+                setIsHovered(false);
+            }
+    }, [position, mousePosition, isVisible]);
+
+
 
     return (
         <div
             className={`relative rounded-tr-lg rounded-bl-lg ${isHovered ? 'skillblock-circular-gradient' : ''}`}
             style={{ width: '250px', height: '200px', }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onMouseMove={handleMouseMove}
         >
-            {/* top left */}
             <div className="absolute top-0 left-0 w-[3px] h-5 bg-neon-green -translate-x-px -translate-y-1/2"></div>
             <div className={`absolute top-0 left-0 w-5 h-[3px] bg-neon-green -translate-y-px -translate-x-1/2 transition-transform duration-[1000ms] ease-in ${isVisible ? '' : '-rotate-45'}`}></div>
-            {/* bottom right */}
             <div className="absolute bottom-0 right-0 w-[3px] h-5 bg-neon-green translate-x-px translate-y-1/2"></div>
             <div className={`absolute bottom-0 right-0 w-5 h-[3px] bg-neon-green translate-y-px translate-x-1/2 transition-transform duration-[1000ms] ease-in ${isVisible ? '' : 'rotate-45'}`}></div>
-            {/* Main box */}
             <div className="relative w-full h-full overflow-hidden">
                 <div
                     ref={ref}
@@ -100,11 +99,10 @@ const SkillBlock: React.FC<SkillProps> = ({ name, alt, logo, link }) => {
                 >
                     <Link
                         href={link}
+                        ref={logoRef}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-[40%] relative"
-                        onMouseEnter={handleContentEnter}
-                        onMouseLeave={handleContentLeave}
                     >
                         <div className="w-full relative aspect-square">
                             <Image
@@ -123,10 +121,12 @@ const SkillBlock: React.FC<SkillProps> = ({ name, alt, logo, link }) => {
                     <div
                         className="absolute pointer-events-none bg-white rounded-full transition duration-300"
                         style={{
-                            left: isOverContent ? `${mousePosition.x - 50}px` : `${mousePosition.x - 20}px`,
-                            top: isOverContent ? `${mousePosition.y - 50}px` : `${mousePosition.y - 20}px`,
-                            width: isOverContent ? '100px' : '40px',
-                            height: isOverContent ? '100px' : '40px',
+
+                            left: logoHovered ? `${mousePosition.x - position.x - 50}px` : `${mousePosition.x - position.x - 20}px`,
+                            top: logoHovered ? `${mousePosition.y - position.y - 50}px` : `${mousePosition.y - position.y - 20}px`,
+                            width: logoHovered ? '100px' : '40px',
+                            height: logoHovered ? '100px' : '40px',
+
                             mixBlendMode: 'difference',
                             transition: 'width 0.15s, height 0.15s'
                         }}
@@ -157,10 +157,25 @@ const skills: SkillProps[] = [
 ];
 
 const SkillBlockWrapper: React.FC = () => {
+    const [mousePosition, setMousePosition] = useState<Position>({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const updateMousePosition = (ev: MouseEvent) => {
+            setMousePosition({ x: ev.clientX, y: ev.clientY });
+        };
+
+        window.addEventListener('mousemove', updateMousePosition);
+
+        return () => {
+            window.removeEventListener('mousemove', updateMousePosition);
+        };
+
+    }, []);
+
     return (
         <>
             {skills.map((skill, index) => (
-                <SkillBlock key={index} {...skill} />
+                <SkillBlock key={index} {...skill} mousePosition={mousePosition}/>
             ))}
         </>
 
@@ -168,3 +183,4 @@ const SkillBlockWrapper: React.FC = () => {
 }
 
 export default SkillBlockWrapper;
+
