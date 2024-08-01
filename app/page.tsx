@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
 import ExperienceSection from './components/ExperienceSection';
-import SkillsSection from './components/SkillsSection';
-import ProjectsSection from './components/ProjectsSection';
+import SkillSection from './components/SkillSection';
+import ProjectSection from './components/ProjectSection';
 
 const Home: React.FC = () => {
     return (
@@ -11,10 +11,8 @@ const Home: React.FC = () => {
                 <Header />
 
                 <ExperienceSection/>
-                <SkillsSection/>
-                <div className="h-screen w-screen bg-dark-black">
-                    Section
-                </div>
+                <SkillSection/>
+                <ProjectSection/>
                 <div className="h-screen w-screen bg-dark-black">
                     Section
                 </div>
